@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Correia Ventura</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --accent: #38bdf8;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --accent: #2563eb;
+    }
+
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+    body {
+      background:var(--bg);
+      color:var(--text);
+      transition:0.3s;
+      scroll-behavior:smooth;
+    }
+
+    header {
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    h1 {font-size:36px;margin-bottom:10px;}
+
+    .typing {
+      border-right:2px solid var(--accent);
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      margin:auto;
+      animation: typing 3s steps(40,end) forwards;
+    }
+
+    @keyframes typing { to {width:100%;} }
+
+    nav {margin-top:25px;}
+    nav a {margin:0 12px;color:var(--accent);text-decoration:none;font-weight:bold;}
+
+    section {
+      max-width:900px;
+      margin:80px auto;
+      padding:0 20px;
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s;
+    }
+
+    section.show {opacity:1;transform:translateY(0);}    
+
+    h2 {margin-bottom:20px;color:var(--accent);}
+
+    .card {
+      background:var(--card);
+      padding:25px;
+      border-radius:16px;
+      margin-bottom:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .skills span {display:block;margin-bottom:15px;}
+
+    .bar {height:10px;background:#334155;border-radius:5px;overflow:hidden;}
+
+    .fill {height:100%;background:var(--accent);}
+
+    .toggle {position:fixed;top:20px;right:20px;}
+
+    .whatsapp {
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:white;
+      padding:14px 18px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    footer {text-align:center;padding:30px;margin-top:50px;opacity:0.7;}
+  </style>
+</head>
+<body>
+
+<button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+<a class="whatsapp" href="https://wa.me/5517991634241" target="_blank">WhatsApp</a>
+
+<header>
+  <h1>Gabriel Correia Ventura</h1>
+  <p class="typing">Estudante de Engenharia da Computação | Desenvolvedor em formação</p>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#tecnologias">Tecnologias</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section id="sobre">
+  <h2>Sobre mim</h2>
+  <div class="card">
+    <p>Sou um jovem de 18 anos, estudante de Engenharia da Computação, atualmente trabalhando na Neoenergia Elektro. Tenho grande interesse pela área de tecnologia e busco constantemente evoluir tanto no conhecimento técnico quanto no desenvolvimento profissional.</p>
+
+    <p>Estou em fase inicial da minha carreira, mas com forte motivação para aprender, crescer e conquistar espaço no mercado de tecnologia. Tenho interesse especial em desenvolvimento web, principalmente na criação de sites e lojas online.</p>
+
+    <p>Meu objetivo é me tornar um profissional qualificado, capaz de desenvolver soluções eficientes e contribuir com projetos reais que agreguem valor para pessoas e empresas.</p>
+  </div>
+</section>
+
+<section id="tecnologias">
+  <h2>Tecnologias</h2>
+  <div class="card skills">
+    <span>HTML<div class="bar"><div class="fill" style="width:90%"></div></div></span>
+    <span>CSS<div class="bar"><div class="fill" style="width:85%"></div></div></span>
+    <span>JavaScript<div class="bar"><div class="fill" style="width:75%"></div></div></span>
+  </div>
+</section>
+
+<section id="projetos">
+  <h2>Projetos</h2>
+  <div class="card">
+    <h3>Desenvolvimento de Loja Online</h3>
+    <p>Atualmente estou desenvolvendo um projeto de loja virtual para minha mãe, que possui uma empresa de roupas, mas ainda não conta com presença digital para vendas e divulgação.</p>
+
+    <p>O objetivo do projeto é criar um site funcional, moderno e acessível, permitindo que os produtos sejam exibidos e comercializados online, ampliando o alcance do negócio e melhorando a experiência dos clientes.</p>
+
+    <p>Este projeto representa minha aplicação prática dos conhecimentos em HTML, CSS e JavaScript, além de ser um passo importante no meu desenvolvimento como futuro profissional da área de tecnologia.</p>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+  <div class="card">
+    <p><strong>Telefone:</strong> (17) 99163-4241</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gabriel-correia-67885a375" target="_blank">Acessar perfil</a></p>
+    <p><strong>GitHub:</strong> Adicionar futuramente</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Gabriel Correia Ventura</p>
+</footer>
+
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+  }
+
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if(top < window.innerHeight - 100){
+        sec.classList.add("show");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+
